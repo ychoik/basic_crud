@@ -35,12 +35,13 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    //특정 게시글 조회
+    //번호로 특정 게시글 조회
     public Post getPostById(Long id){
         return postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
     }
 
+    //제목으로 특정 게시글 조회
     public List<Post> getPostByTitle(String title){
         return postRepository.findByTitleContaining(title);
     }
