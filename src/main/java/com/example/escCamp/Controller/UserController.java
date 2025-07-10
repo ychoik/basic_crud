@@ -1,10 +1,9 @@
 package com.example.escCamp.Controller;
 
+import com.example.escCamp.Dto.UserDto;
 import com.example.escCamp.Service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -16,11 +15,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/regist")
-    public void regist(@RequestParam String userId, @RequestParam String password) {
-
+    // 회원가입
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody UserDto userDto) {
+        userService.register(userDto);
+        return ResponseEntity.ok("회원가입 성공");
     }
-
-
 
 }
