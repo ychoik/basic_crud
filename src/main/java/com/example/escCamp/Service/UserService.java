@@ -51,7 +51,7 @@ public class UserService {
         return user;
     }
 
-    //로그아웃
+    //로그아웃의 경우 서버 측에서 상태를 해제할ㄹ 것이 없기 때문에, service 계층은 불필요함 -> 컨트롤러에만 작성해 주면 됨
 
 
 }

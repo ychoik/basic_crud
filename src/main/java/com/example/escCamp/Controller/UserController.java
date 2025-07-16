@@ -22,4 +22,13 @@ public class UserController {
         return ResponseEntity.ok("회원가입 성공");
     }
 
+    //로그아웃
+    @PostMapping
+    public ResponseEntity<String> logout()
+    {
+        //로그아웃 처리는 클라이언트에서 상태 삭제로 처리
+        return ResponseEntity.ok("로그아웃 되었습니다.");
+    }
+
+
 }
