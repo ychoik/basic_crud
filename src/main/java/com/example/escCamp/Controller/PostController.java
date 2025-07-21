@@ -30,21 +30,30 @@ public class PostController {
     }
 
     //특정 게시글 조회 (GET / posts/{id})
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public  Post read(@RequestParam Long id)
     {
         return postService.getPostById(id);
     }
 
-    @GetMapping("/{title}")
+    @GetMapping("/title/{title}")
     public List<Post> titleRead(@RequestParam String title)
     {
         return postService.getPostByTitle(title);
     }
 
+    //게시글 글 수정
+    @PutMapping("/id/{id}")
+    public Post updatePost(@PathVariable Long id, @RequestBody PostDto dto) {
+        return postService.updatePost(id, dto);
+    }
 
-
-
+    //게시글 글 삭제
+    @DeleteMapping("/id/{id}")
+    public String deletePost(@PathVariable Long id) {
+        postService.deletePost(id);
+        return "삭제 완료 (ID: " + id + ")";
+    }
 
 
 }
