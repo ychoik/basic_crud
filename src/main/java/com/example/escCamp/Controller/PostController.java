@@ -16,7 +16,7 @@ public class PostController {
     private final PostService postService;
 
     //게시글 작성
-    @PostMapping
+    @PostMapping("/write")
     public Post create(@RequestBody PostDto dto)
     {
         return postService.createPost(dto);
